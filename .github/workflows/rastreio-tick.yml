@@ -1,0 +1,11 @@
+name: tick
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+  workflow_dispatch:
+jobs:
+  tick:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - run: curl -fsS --max-time 60 "https://rastreio-pro-jade.vercel.app/api/wa?tick=1" || true
